@@ -53,6 +53,10 @@ public class AccountService {
             tags.put("link", link);
 
             GmailService.sendMail(to, subject, template, tags);
+            
+            user.setResetPasswordUuid(uuid);
+            userDB.update(user);
+            
         } catch (Exception e) {
         }
     }
